@@ -13,33 +13,33 @@
     -----------------------------------------------------------------------------------
 
      */
-   /*======================================
-   Data Css js
-   ========================================*/
-    $("[data-background]").each(function() {
+    /*======================================
+    Data Css js
+    ========================================*/
+    $("[data-background]").each(function () {
         $(this).css(
             "background-image",
             "url( " + $(this).attr("data-background") + "  )"
         );
     });
 
-    $("[data-width]").each(function() {
+    $("[data-width]").each(function () {
         $(this).css("width", $(this).attr("data-width"));
     });
 
     // prelaoder
     let span = $('.letter'),
-        tlSmell = new TimelineMax({repeat : -1});
+        tlSmell = new TimelineMax({ repeat: -1 });
     tlSmell
-        .staggerFromTo($('svg .smell'), 3, {y: 50, autoAlpha: 0.5}, {y: -20, autoAlpha: 1}, 1);
-    TweenMax.fromTo($('svg #body'), 3, {x: -1, repeat : -1, yoyo : true}, {x: 1, repeat : -1, yoyo : true});
+        .staggerFromTo($('svg .smell'), 3, { y: 50, autoAlpha: 0.5 }, { y: -20, autoAlpha: 1 }, 1);
+    TweenMax.fromTo($('svg #body'), 3, { x: -1, repeat: -1, yoyo: true }, { x: 1, repeat: -1, yoyo: true });
 
     class GSAPAnimation {
         static Init() {
             /*title-animation*/
-            $('.title-animation').length && this.sectionTitleAnimation('.title-animation'); 
+            $('.title-animation').length && this.sectionTitleAnimation('.title-animation');
         }
-        
+
         static sectionTitleAnimation(activeClass) {
             let sectionTitleLines = gsap.utils.toArray(activeClass);
 
@@ -59,8 +59,8 @@
                 gsap.set(sectionTextLine, { perspective: 100 });
                 itemSplitted.split({ type: "words" })
                 tl.from(itemSplitted.words, {
-                    opacity: 0, 
-                    autoAlpha: 0, 
+                    opacity: 0,
+                    autoAlpha: 0,
                     transformOrigin: "top center -50",
                     y: "10px",
                     duration: 0.9,
@@ -75,7 +75,7 @@
         static LoadedAfter() {
             $('#preloader').delay(1).fadeOut(0);
 
-            $('.odometer').waypoint(function(direction) {
+            $('.odometer').waypoint(function (direction) {
                 if (direction === 'down') {
                     let countNumber = $(this.element).attr("data-count");
                     $(this.element).html(countNumber);
@@ -105,9 +105,9 @@
       Preloader activation
       ========================================*/
     $(window).on('load', RRDEVS.LoadedAfter);
-    $(".preloader-close").on("click",  RRDEVS.LoadedAfter)
+    $(".preloader-close").on("click", RRDEVS.LoadedAfter)
 
-    window.addEventListener('resize', function() {
+    window.addEventListener('resize', function () {
         gsap.globalTimeline.clear();
     });
 
@@ -128,8 +128,8 @@
         $(".offcanvas__overlay").removeClass("overlay-open");
     });
     // Scroll to bottom then close navbar
-    $(window).scroll(function(){
-        if($("body").scrollTop() > 0 || $("html").scrollTop() > 0) {
+    $(window).scroll(function () {
+        if ($("body").scrollTop() > 0 || $("html").scrollTop() > 0) {
             $(".offcanvas__area").removeClass("info-open");
             $(".offcanvas__overlay").removeClass("overlay-open");
         }
@@ -178,7 +178,7 @@
     /*======================================
       Page Scroll Percentage
       ========================================*/
-    const scrollTopPercentage = ()=> {
+    const scrollTopPercentage = () => {
         const scrollPercentage = () => {
             const scrollTopPos = document.documentElement.scrollTop;
             const calcHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
@@ -187,13 +187,13 @@
 
             scrollElementWrap.css("background", `conic-gradient( var(--rr-theme-primary) ${scrollValue}%, var(--rr-theme-secondary) ${scrollValue}%)`);
 
-            if ( scrollTopPos > 100 ) {
+            if (scrollTopPos > 100) {
                 scrollElementWrap.addClass("active");
             } else {
                 scrollElementWrap.removeClass("active");
             }
 
-            if( scrollValue < 96 ) {
+            if (scrollValue < 96) {
                 $("#scroll-percentage-value").text(`${scrollValue}%`);
             } else {
                 $("#scroll-percentage-value").html('<i class="fa-solid fa-angle-up"></i>');
@@ -215,10 +215,10 @@
     scrollTopPercentage();
 
     /*======================================
-	One Page Scroll Js
-	========================================*/
+    One Page Scroll Js
+    ========================================*/
     var link = $('.onepagenav #mobile-menu ul li a, .onepagenav .mean-nav ul li a');
-    link.on('click', function(e) {
+    link.on('click', function (e) {
         var target = $($(this).attr('href'));
         $('html, body').animate({
             scrollTop: target.offset().top - 76
@@ -226,17 +226,17 @@
         $(this).parent().addClass('active');
         e.preventDefault();
     });
-    $(window).on('scroll', function(){
+    $(window).on('scroll', function () {
         scrNav();
     });
 
     function scrNav() {
         var sTop = $(window).scrollTop();
-        $('section').each(function() {
+        $('section').each(function () {
             var id = $(this).attr('id'),
-                offset = $(this).offset().top-1,
+                offset = $(this).offset().top - 1,
                 height = $(this).height();
-            if(sTop >= offset && sTop < offset + height) {
+            if (sTop >= offset && sTop < offset + height) {
                 link.parent().removeClass('active');
                 $('.main-menu').find('[href="#' + id + '"]').parent().addClass('active');
             }
@@ -245,8 +245,8 @@
     scrNav();
 
     /*======================================
-	Smoth animatio Js
-	========================================*/
+    Smoth animatio Js
+    ========================================*/
     $(document).on('click', '.smoth-animation', function (event) {
         event.preventDefault();
         $('html, body').animate({
@@ -508,7 +508,7 @@
     }
 
     function lastNobullet() {
-        $(".last_no_bullet ul").each(function() {
+        $(".last_no_bullet ul").each(function () {
             var $listItems = $(this).find("li");
 
             if ($listItems.length > 1) {
@@ -519,11 +519,11 @@
 
     lastNobullet();
 
-    $(window).resize(function() {
+    $(window).resize(function () {
         lastNobullet();
     });
 
-    $('#contact-us-message__form').submit(function(event) {
+    $('#contact-us-message__form').submit(function (event) {
         event.preventDefault();
         var form = $(this);
         var valid = true;
@@ -531,7 +531,7 @@
         form.find('.error-message').remove();
         form.find('.success-message').remove();
 
-        form.find('input, textarea, select').each(function() {
+        form.find('input, textarea, select').each(function () {
             if ($(this).val().trim() === '') {
                 valid = false;
                 $(this).parent().after('<p class="error-message  mt-3 mb-0">This field is required.</p>');
@@ -544,15 +544,15 @@
 
         $('.loading-form').show();
 
-        setTimeout(function() {
+        setTimeout(function () {
             $.ajax({
                 type: form.attr('method'),
                 url: form.attr('action'),
                 data: form.serialize()
-            }).done(function(data) {
+            }).done(function (data) {
                 $('.loading-form').hide();
                 form.append('<p class="success-message mt-3 mb-0">Your message has been sent successfully.</p>');
-            }).fail(function(data) {
+            }).fail(function (data) {
                 $('.loading-form').hide();
                 form.append('<p class="error-message mt-3 mb-0">Something went wrong. Please try again later.</p>');
             });
@@ -627,9 +627,9 @@
                 class: 'magnetizing',
                 attraction: 0.45,
                 distance: 100,
-                onEnter: function (data) {},
-                onExit: function (data) {},
-                onUpdate: function (data) {},
+                onEnter: function (data) { },
+                onExit: function (data) { },
+                onUpdate: function (data) { },
             }, options);
 
             if (!this.settings.target.length) return;
@@ -664,10 +664,10 @@
                     deltaY = Math.floor(centerY - mouseY) * -1 * attraction,
                     mouseDistance = this.distanceFromMouse($this, mouseX, mouseY),
                     isEnter = $this.data('isEnter') || false,
-                    data = {target: $this, y: deltaY, x: deltaX, distance: mouseDistance};
+                    data = { target: $this, y: deltaY, x: deltaX, distance: mouseDistance };
 
                 if (mouseDistance < distance) {
-                    gsap.to($this, {y: deltaY, x: deltaX});
+                    gsap.to($this, { y: deltaY, x: deltaX });
 
                     if (!isEnter) {
                         $this.data('isEnter', true);
@@ -677,7 +677,7 @@
 
                     this.settings.onUpdate(data);
                 } else {
-                    gsap.to($this, {y: 0, x: 0});
+                    gsap.to($this, { y: 0, x: 0 });
 
                     if (isEnter) {
                         $this.data('isEnter', false);
@@ -693,12 +693,55 @@
         attraction: (data) => data.target[0].dataset.magneticAttraction,
         distance: (data) => data.target[0].dataset.magneticDistance,
         onEnter: function (data) {
-            gsap.to(data.target, {scale: data.target[0].dataset.magneticZoom});
+            gsap.to(data.target, { scale: data.target[0].dataset.magneticZoom });
         },
         onExit: function (data) {
-            gsap.to(data.target, {scale: 1});
+            gsap.to(data.target, { scale: 1 });
         },
-        onUpdate: function (data) {}
+        onUpdate: function (data) { }
     });
+
+
+// Function to toggle dark mode and switch icons
+function toggleDarkMode() {
+    const body = document.body;
+    const darkModeEnabled = body.classList.toggle('dark-mode');
+
+    // Change the icon based on the current mode
+    const icon = document.getElementById('toggle-icon');
+    if (darkModeEnabled) {
+        icon.classList.remove('fa-moon');
+        icon.classList.add('fa-sun');
+    } else {
+        icon.classList.remove('fa-sun');
+        icon.classList.add('fa-moon');
+    }
+
+    // Save the user's preference in localStorage
+    localStorage.setItem('dark-mode', darkModeEnabled);
+}
+
+// Check localStorage and apply dark mode if it was previously enabled
+function applyDarkModePreference() {
+    const darkModeEnabled = localStorage.getItem('dark-mode') === 'true';
+    const icon = document.getElementById('toggle-icon');
+    if (darkModeEnabled) {
+        document.body.classList.add('dark-mode');
+        icon.classList.remove('fa-moon');
+        icon.classList.add('fa-sun');
+    }
+}
+
+// Add event listener to the dark mode toggle button
+document.addEventListener('DOMContentLoaded', function () {
+    applyDarkModePreference();
+
+    const darkModeToggle = document.getElementById('dark-mode-toggle');
+    if (darkModeToggle) {
+        darkModeToggle.addEventListener('click', toggleDarkMode);
+    }
+});
+
+
 
 })(jQuery);

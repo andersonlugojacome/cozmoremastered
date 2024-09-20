@@ -12011,3 +12011,87 @@ body .ui-tooltip {
   font-size: 10px;
   color: var(--rr-common-white);
 }
+
+/* Dark Mode Styles */
+body.dark-mode {
+  background-color: #121212;
+  color: #ffffff;
+}
+body.dark-mode a {
+  color: #1e90ff; /* Example: link color in dark mode */
+}
+
+body.dark-mode h1, 
+body.dark-mode h2, 
+body.dark-mode h3, 
+body.dark-mode h4, 
+body.dark-mode h5, 
+body.dark-mode h6 {
+  color: #cccccc; /* Ensure all headings turn white */
+}
+
+body.dark-mode p, 
+body.dark-mode li, 
+body.dark-mode span, 
+body.dark-mode div {
+  color: #cccccc; /* Apply to paragraphs, list items, spans, and divs */
+}
+
+/* Example for buttons */
+body.dark-mode .btn, 
+body.dark-mode .rr-btn__header {
+  background-color: #333; /* Button background */
+  color: #cccccc; /* Button text color */
+}
+
+/* Handle other specific elements */
+body.dark-mode .header__right {
+  color: #cccccc;
+}
+
+body.dark-mode .footer {
+  background-color: #222;
+  color: #cccccc;
+}
+
+/* Navbar Example for Dark Mode */
+.dark-mode .navbar {
+  background-color: #333;
+}
+
+/* Toggle Button Styles */
+#dark-mode-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 24px;
+  color: #333; 
+}
+
+/* Optional: Style the button to make it look better */
+#dark-mode-toggle:hover {
+  color: #ffcc00; /* Change color on hover */
+}
+
+/* Adjust the margin to space the toggle button and the Get Started button */
+#dark-mode-toggle {
+  margin-right: 10px; /* Add some space to the right of the toggle */
+}
+
+/* Ensure the buttons are aligned */
+.header__right {
+  display: flex;
+  align-items: center;
+}
+
+.header__btn-wrap {
+  display: flex;
+  align-items: center;
+}
+
+.d-flex.align-items-center {
+  display: flex;
+  align-items: center;
+}
+
+
